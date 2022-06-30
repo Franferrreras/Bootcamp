@@ -1,5 +1,7 @@
 package com.nttdata.bootcamp.priceservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +13,25 @@ import com.nttdata.bootcamp.priceservice.model.Price;
 import com.nttdata.bootcamp.priceservice.service.PriceServiceImpl;
 
 @RestController
-@RequestMapping("/get-price")
 public class ServiceController {
 
 	@Autowired
-	PriceServiceImpl productService;
+	PriceServiceImpl priceService;
 	
-	@GetMapping("/{idproduct}")
+	@RequestMapping("/get-price/{idproduct}")
 	public ResponseEntity<Price> priceProduct(@PathVariable("idproduct") Long idProduct) {
 		
-		Price priceObject = productService.getPrice(idProduct);
+		Price priceObject = priceService.getPrice(idProduct);
 		
 		
 		return ResponseEntity.ok(priceObject);
+	}
+	
+	@GetMapping("/get-all-prices")
+	public List<Price> listPriceProduct() {
+		
+		List<Price> list_price = priceService.getAllPrice();
+		
+		return list_price;
 	}
 }

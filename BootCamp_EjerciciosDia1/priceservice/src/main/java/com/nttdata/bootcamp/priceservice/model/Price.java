@@ -1,5 +1,7 @@
 package com.nttdata.bootcamp.priceservice.model;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +13,7 @@ public class Price {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String code_product;
+	private String codeProduct;
 	private String description;
 	private double price;
 
@@ -28,12 +30,12 @@ public class Price {
 		this.id = id;
 	}
 
-	public String getCode_product() {
-		return code_product;
+	public String getCodeProduct() {
+		return codeProduct;
 	}
 
-	public void setCode_product(String code_product) {
-		this.code_product = code_product;
+	public void setCodeProduct(String code_product) {
+		this.codeProduct = code_product;
 	}
 
 	public String getDescription() {
@@ -50,6 +52,29 @@ public class Price {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Price other = (Price) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Price [id=" + id + ", code_product=" + codeProduct + ", description=" + description + ", price="
+				+ price + "]";
 	}
 
 }

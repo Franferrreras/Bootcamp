@@ -23,7 +23,7 @@ spring:
       - id: price-products
         uri: lb://price-products
         predicates:
-        - Path=/get-price/**
+        - Path=/get-price/**, /get-all-prices
       discovery:
         locator:
           enabled: true
