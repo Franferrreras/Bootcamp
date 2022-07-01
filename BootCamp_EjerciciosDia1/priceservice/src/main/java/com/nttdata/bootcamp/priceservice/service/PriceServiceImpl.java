@@ -56,8 +56,6 @@ public class PriceServiceImpl implements PriceService {
 
 		List<Price> list_price = new ArrayList();
 
-		System.out.println(list_product);
-
 		for (Product p : list_product) {
 
 			Price priceObj = new Price();

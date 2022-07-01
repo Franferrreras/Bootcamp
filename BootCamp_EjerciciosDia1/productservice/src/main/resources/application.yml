@@ -45,9 +45,13 @@ eureka:
 spring:
   application:
     name: servicio-products
+  boot:
+    admin:
+      client:
+        url: http://localhost:8099
   
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -23,8 +23,10 @@ public class ServiceController {
 		
 		Price priceObject = priceService.getPrice(idProduct);
 		
-		
-		return ResponseEntity.ok(priceObject);
+		if (priceObject != null) {
+			return ResponseEntity.ok(priceObject);
+		}
+		return null;
 	}
 	
 	@GetMapping("/get-all-prices")
@@ -32,6 +34,10 @@ public class ServiceController {
 		
 		List<Price> list_price = priceService.getAllPrice();
 		
-		return list_price;
+		if (list_price.size() > 0) {
+			return list_price;
+		}
+		
+		return null;
 	}
 }
