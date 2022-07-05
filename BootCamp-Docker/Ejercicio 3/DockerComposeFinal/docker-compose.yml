@@ -1,0 +1,12 @@
+version: '3'
+services:
+  NGINX: 
+    image: nginx
+    container_name: nginx-Final
+    ports: 
+      - 8080:80
+  hellow-wordl:
+    image: hellow-phyton
+    container_name: python-Final
+    ports:
+      - "8081:80"
